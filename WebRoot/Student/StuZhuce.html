@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>layui</title>
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="../plugins/layui_2/css/layui.css"  media="all">
+  <!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
+</head>
+<!-- <body>
+ <div class="layui-btn-group demoTable">
+  <button class="layui-btn" data-type="getCheckData">获取选中行数据</button>
+  <button class="layui-btn" data-type="getCheckLength">获取选中数目</button>
+  <button class="layui-btn" data-type="isAll">验证是否全选</button>
+</div> -->
+
+<table class="layui-hide" lay-filter="demo"  id="stu_info"></table>
+              
+          
+<script type="text/html" id="barDemo">
+
+  <a class="layui-btn layui-btn-xs" lay-event="edit">审阅</a>
+
+</script>
+
+<script src="../plugins/layui_2/layui.js" charset="utf-8"></script>
+<!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 --> 
+ 
+<script>
+layui.use('table', function(){
+  var table = layui.table;
+  // var layer=layui.layer;
+
+
+
+
+  table.render({
+    elem: '#stu_info'
+    ,url:'../datas/zhuceshengqing.json'
+    ,height: 'full-80' 
+    ,cols: [[
+      {field:'id',checkbox: true,width:80, title: '学号', sort: true}
+      ,{field:'username', width:80, title: '登录名称'}
+      ,{field:'sex', width:70, title: '性别', sort: true}
+      ,{field:'truename', width:80, title: '真实姓名'}
+      ,{field:'password', width:80, title: '密码'}
+      ,{field:'email', width:120, title: '邮箱账号', sort: true}
+      ,{field:'phone', width:150, title: '电话号码', sort: true}
+      ,{fixed: 'right', minWidth:150,  align:'center', toolbar: '#barDemo'}
+    ]]
+    ,page: true
+  });
+
+    table.on('checkbox(demo)', function(obj){
+    console.log(obj)
+  });
+
+    //监听工具条
+  table.on('tool(demo)', function(obj){
+    var data = obj.data;
+    if(obj.event === 'detail'){
+      layer.msg('ID：'+ data.id + ' 的查看操作');
+    } else if(obj.event === 'del'){
+      layer.confirm('真的删除行么', function(index){
+        obj.del();
+        layer.close(index);
+      });
+    } else if(obj.event === 'edit'){
+
+    	layer.open({
+		  type: 2,
+		  area: ['300px', '500px'],
+		  skin: 'layui-layer-rim', //加上边框
+		  // content: ['StuShengyue.html?name='+data.id, 'no']
+			  content: ['StuShengyue.html?data='+data.truename+'='+data.email+'='+data.phone, 'no']
+	})
+
+		// ?data=haha=email=phone
+		// layer.alert('编辑行：<br>'+ JSON.stringify(data))
+    }
+  });
+  
+  // var $ = layui.$, active = {
+  //   getCheckData: function(){ //获取选中数据
+  //     var checkStatus = table.checkStatus('stu_info')
+  //     ,data = checkStatus.data;
+  //     layer.alert(JSON.stringify(data));
+  //   }
+  //   ,getCheckLength: function(){ //获取选中数目
+  //     var checkStatus = table.checkStatus('stu_info')
+  //     ,data = checkStatus.data;
+  //     layer.msg('选中了：'+ data.length + ' 个');
+  //   }
+  //   ,isAll: function(){ //验证是否全选
+  //     var checkStatus = table.checkStatus('stu_info');
+  //     layer.msg(checkStatus.isAll ? '全选': '未全选')
+  //   }
+  // };
+  
+  // $('.demoTable .layui-btn').on('click', function(){
+  //   var type = $(this).data('type');
+  //   active[type] ? active[type].call(this) : '';
+  // });
+});
+</script>
+
+</body>
+</html>

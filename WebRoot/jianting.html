@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>layui</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link rel="stylesheet" href="./plugins/layui_2/css/layui.css"  media="all">
+	
+</head>
+<body>   
+	<form class="layui-form"> <!-- 提示：如果你不想用form，你可以换成div等任何一个普通元素 -->
+		<div class="layui-form-item" >
+			<label class="layui-form-label">选择框</label>
+			<div class="layui-input-block">
+				<select name="city" lay-filter="required">
+					<option value="0">北京</option>
+					<option value="1">上海</option>
+					<option value="2">广州</option>
+					<option value="3">深圳</option>
+					<option value="4">杭州</option>
+				</select>
+			</div>
+		</div>
+	</form>
+	<script src="./plugins/layui_2/layui.js" charset="utf-8"></script>
+
+	<script>
+	//Demo
+	layui.use('form', function(){
+		var form = layui.form;
+
+	  form.on('select(required)', function(data){
+		layer.msg(data.value);
+	  	// return false;		
+	  });
+	});
+</script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+var navs = [{
+	"title": "学生管理",
+	"icon": "fa-cubes",
+	"spread": true,
+	"children": [{
+		"title": "学生信息",
+		"icon": "&#xe641;",
+		"href": "./Student/StuInfo.html"
+	}, {
+		"title": "注册申请",
+		"icon": "&#xe63c;",
+		"href": "./Student/StuZhuce.html"
+	}, {
+		"title": "成绩查询",
+		"icon": "&#xe63c;",
+		"href": "./Student/StuChengji.html"
+	}, {
+		"title": "增加学生",
+		"icon": "&#xe609;",
+		"href": "./Student/StuAdd.html"
+	}, {
+		"title": "删除学生",
+		"icon": "&#xe60c;",
+		"href": "./Student/StuDelate.html"
+	}]
+}, {
+	"title": "题库管理",
+	"icon": "fa-cogs",
+	"spread": false,
+	"children": [{
+		"title": "题库详情",
+		"icon": "fa-table",
+		"href": "./Tiku/TkInfo.html"
+	}, {
+		"title": "增加题库",
+		"icon": "fa-navicon",
+		"href": "./Tiku/TkAdd.html"
+	}, {
+		"title": "删除题库",
+		"icon": "&#xe62a;",
+		"href": "./Tiku/TkDelate.html"
+	}, {
+		"title": "题库更新申请",
+		"icon": "&#xe628;",
+		"href": "./Tiku/TkUpdata.html"
+	}]
+}, {
+	"title": "管理员管理",
+	"icon": "&#x1002;",
+	"spread": false,
+	"children": [{
+		"title": "管理员列表",
+		"icon": "fa-check-square-o",
+		"href": "./Manager/icheck.html"
+	}, {
+		"title": "增加管理员",
+		"icon": "&#xe62a;",
+		"href": "./Manager/icheck.html"
+	}, {
+		"title": "删除管理员",
+		"icon": "&#xe62a;",
+		"href": "./Manager/icheck.html"
+	}]
+}, {
+	"title": "帖子管理",
+	"icon": "fa-address-book",
+	"href": "",
+	"spread": false,
+	"children": [{
+		"title": "帖子列表",
+		"icon": "fa-github",
+		"href": "./Tiezi/TieziList.html"
+	}, {
+		"title": "增加板块",
+		"icon": "fa-qq",
+		"href": "./Tiezi/TieziBKadd.html"
+	}, {
+		"title": "板块管理",
+		"icon": "&#xe609;",
+		"href": "./Tiezi/TieziBKman.html"
+	}]
+}, {
+	"title": "系统设置",
+	"icon": "fa-stop-circle",
+	"href": "./Setting/Setting.html",
+	"spread": false
+}, {
+	"title": "其他",
+	"icon": "fa-stop-circle",
+	"href": "#",
+	"spread": false,
+	"children": [{
+		"title": "登陆日志",
+		"icon": "fa-github",
+		"href": "cop.html"
+	}]
+}];
